@@ -1,6 +1,6 @@
 fun main() {
 
-    var card = "VK Pay" //тип карты
+    var card ="Maestro"   //тип карты
 
     var previousTransfers = 15_000  //сумма прошлого платежа в копейках
 
@@ -8,12 +8,14 @@ fun main() {
 
     previousTransfers = pay + previousTransfers
 
-    var total = toPay(pay, previousTransfers, card)
+
+
+    var total = toPay(pay = pay ,previousTransfers = previousTransfers, card = card)
 
     println(total)
 }
 
-fun toPay(pay: Int, previousTransfers: Int, card: String): Any {
+fun toPay(pay: Int, previousTransfers: Int = 0, card: String = "VK Pay"): Any {
     var toPay = when (card) {
         "MasterCard" -> {
             var total = check(pay, previousTransfers, card)
